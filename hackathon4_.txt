@@ -1,0 +1,93 @@
+import pandas as pd
+
+df = pd.read_excel (r'C:\Users\Madhurima\Downloads\CropsDataFile.xlsx')
+
+
+# Program to extract a particular row value 
+import xlrd 
+  
+loc = (r'C:\Users\Madhurima\Downloads\CropsDataFile.xlsx') 
+  
+wb = xlrd.open_workbook(loc) 
+sheet = wb.sheet_by_index(0) 
+  
+sheet.cell_value(0, 0) 
+a=int(input('enter the year that u want to enter:1997/1998/1999/2000/2001/2002/2003/2004/2005/2006'))
+if a==2000:
+    for i in range(3,13):
+         print(sheet.row_values(i))
+    for i in range(82,93):
+        print(sheet.row_values(i))
+    for i in range(291,302):
+        print(sheet.row_values(i))  
+
+elif a==2001:
+    for i in range(93,100):
+         print(sheet.row_values(i))
+    for i in range(13,20):
+        print(sheet.row_values(i))
+elif a==2006:
+    for i in range(56,67):
+         print(sheet.row_values(i))
+    for i in range(101,114):
+        print(sheet.row_values(i))
+    for i in range(175,188):
+        print(sheet.row_values(i)) 
+
+
+
+elif a==2002:
+    for i in range(21,30):
+         print(sheet.row_values(i))
+    for i in range(132,142):
+        print(sheet.row_values(i))
+elif a==2003:
+    for i in range(30,39):
+         print(sheet.row_values(i))
+    for i in range(142,152):
+        print(sheet.row_values(i))
+                      
+
+elif a==2004:
+    for i in range(39,48):
+         print(sheet.row_values(i))
+    for i in range(152,162):
+        print(sheet.row_values(i))  
+
+
+elif a==2005:
+    for i in range(48,55):
+         print(sheet.row_values(i))
+    for i in range(162,175):
+        print(sheet.row_values(i))
+
+
+elif a==1997:
+    for i in range(206,234):
+         print(sheet.row_values(i))
+elif a==1998:
+    for i in range(234,261):
+         print(sheet.row_values(i))
+
+elif a==1999:
+    for i in range(261,291):
+         print(sheet.row_values(i))         
+
+# appending data for file
+
+
+from openpyxl import Workbook
+
+workbook = Workbook()
+sheet = workbook.active
+n=int(input("enter the no of inputs you want to give: "))
+
+for i in range(301,n):
+    sheet["A[i]"] = "str(input())"
+    sheet["B[i]"] = "str(input())"
+    sheet["C[i]"] = "int(input())"
+    sheet["D[i]"] = "str(input())"
+    sheet["E[i]"] = "str(input())"
+    sheet["F[i]"] = "int(input())"
+    sheet["G[i]"] = "int(input())"
+    workbook.save(filename="CropDataFile.xlsx") 
